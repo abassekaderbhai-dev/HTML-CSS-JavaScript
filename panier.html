@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Jeu</title>
+		<style type=>
+			#parfums span
+			{
+				padding: .5em;
+				margin: 1em;
+				border: 1px solid blue;
+			}
+			#parfums span:hover
+			{
+				background-color: #ffa;
+			}			
+		</style>
+	</head>
+	<body>
+		<p id="parfums"><span>Fraise</span><span>Chocolat</span><span>Vanille</span><span>Framboise</span></p> 
+		<h4>Panier:</h4>
+		<ul id="panier">
+		</ul>
+		<script>
+            let parfums = document.querySelectorAll('#parfums span');
+			for (let i = 0; i<parfums.length; i++){
+				parfums[i].addEventListener('click', function(){
+					let liste = document.createElement('li');
+					liste.textContent = this.textContent;
+					document.getElementById('panier').append(liste);
+					set
+			})}
+		</script>
+	</body>
+</html>
