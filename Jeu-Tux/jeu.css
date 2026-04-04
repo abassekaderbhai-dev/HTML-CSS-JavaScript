@@ -1,0 +1,28 @@
+body
+{
+	margin: 10px;
+}
+
+#cadre
+{
+	width: 500px;
+	height: 500px;
+	border: 1px solid black;
+}
+
+#tux
+{
+	position: absolute;
+	top: 100px;
+	left: 100px;
+    border : 0.4px solid black;
+	transition: top .3s, left .3s; 
+}
+.splat
+{
+	position: absolute;
+	top: 500px;
+	left: 100px;
+	transform: scale(4); 
+	transition: top 1s,left 1s,transform 1s;
+}
