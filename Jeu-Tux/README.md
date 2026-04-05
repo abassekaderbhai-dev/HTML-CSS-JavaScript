@@ -30,7 +30,7 @@ Le splat apparaît agrandi puis glisse vers la position du clic. La collision es
 
 - Ajouter un compte à rebours pour limiter la durée d'une partie
 - Afficher un message de fin avec le score final
-- Faire un tableau avec la sauvegarde des joueurs et leurs scores
+- Faire un tableau avec la sauvegarde des joueurs et leurs scores grâce au répertoire `Liste_joueurs`
 
 ---
 
