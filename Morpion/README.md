@@ -36,4 +36,4 @@ Un jeu de morpion classique jouable à deux, développé en HTML, CSS et JavaScr
 
 ## Lancer le jeu
 
-Ouvrir `index.html` dans un navigateur — aucune installation requise.
+Ouvrir `index.html` dans un navigateur.
