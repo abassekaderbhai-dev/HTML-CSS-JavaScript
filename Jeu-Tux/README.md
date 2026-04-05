@@ -1,6 +1,6 @@
 # Jeu Tux
 
-Un mini-jeu de réflexes développé en HTML, CSS et JavaScript vanilla. Le joueur déplace Tux, la mascotte de Linux, dans une zone de jeu et doit le faire toucher par des projections lancées à la souris.
+Un mini-jeu de réflexes. Le joueur déplace Tux, la mascotte de Linux, dans une zone de jeu et doit le faire toucher par des projections lancées à la souris.
 
 ---
 
