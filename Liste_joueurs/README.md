@@ -25,4 +25,4 @@ Une page de gestion des joueurs et de leurs scores, conçue pour être utilisée
 
 ## Lancer la page
 
-Ouvrir `index.html` dans un navigateur — aucune installation requise.
+Ouvrir `index.html` dans un navigateur.
