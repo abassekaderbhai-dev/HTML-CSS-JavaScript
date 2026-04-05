@@ -1,6 +1,6 @@
 # Formulaire interactif
 
-Un formulaire d'inscription avec validation en temps réel, développé en HTML et JavaScript vanilla. Les erreurs s'affichent et disparaissent dynamiquement au fil de la saisie, sans rechargement de page.
+Un formulaire d'inscription avec validation en temps réel. Les erreurs s'affichent et disparaissent dynamiquement au fil de la saisie, sans rechargement de page.
 
 ---
 
@@ -36,4 +36,4 @@ Un formulaire d'inscription avec validation en temps réel, développé en HTML 
 
 ## Lancer le projet
 
-Ouvrir `index.html` dans un navigateur — aucune installation requise.
+Ouvrir `index.html` dans un navigateur.
