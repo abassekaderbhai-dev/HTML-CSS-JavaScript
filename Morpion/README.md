@@ -1,6 +1,6 @@
 # Morpion 
 
-Un jeu de morpion classique jouable à deux, développé en HTML, CSS et JavaScript vanilla.
+Un jeu de morpion classique jouable à deux, développé en HTML, CSS et JavaScript.
 
 ---
 
