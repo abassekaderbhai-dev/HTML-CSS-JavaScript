@@ -1,7 +1,59 @@
+// Des raccourcis
+const tux=document.getElementById('tux');
+const spanEtape=document.getElementById('etape');
+const spanScore=document.getElementById('score');
+const spanTemps=document.getElementById('temps');
+const commencer=document.getElementById('commencer');
+
+// Variables globales : L'état du jeu
 let score=0;
-let tux=document.getElementById('tux');
+let etape;
+let temps;
+let interval;
+
+changer_etape('Début');
+
+commencer.addEventListener('click',function(){
+  if(etape==='Début' || etape==='Fin'){changer_etape('Jeu');}
+});
+
+
+function minuteur()
+{
+  temps-=1;
+  spanTemps.textContent=temps;  
+  if(temps<=0){
+    changer_etape('Fin');
+  }
+}
+
+function changer_etape(nouvelleEtape)
+{
+  if(nouvelleEtape==='Jeu'){
+    document.getElementById('game-over').style.display='none';
+    document.querySelectorAll('.splat').forEach(s=>s.remove());
+    tux.style.left="";
+    tux.style.top="";
+    score=0;
+    spanScore.textContent=score;
+    temps=10;
+    spanTemps.textContent=temps;
+    interval=window.setInterval(minuteur,1000);
+    commencer.style.opacity=0;
+  }
+  if(nouvelleEtape==='Fin'){
+    document.getElementById('game-over').style.display='block';
+    commencer.style.opacity=1;
+    commencer.value='Recommencer';
+    window.clearInterval(interval);
+  }
+
+  etape=nouvelleEtape;
+  document.getElementById('etape').textContent=etape;
+}
 
 document.addEventListener('keydown',function(event){
+  if(etape!=='Jeu'){return;}
   console.log('Touche enfoncée:',event.key);
   let rect=tux.getBoundingClientRect();
   console.log(rect);
@@ -22,6 +74,7 @@ document.addEventListener('keydown',function(event){
 
 document.addEventListener('mousedown',function (event) 
 {
+  if(etape!=='Jeu'){return;}
   // Petit détail: éviter la sélection 
   event.preventDefault();
 
@@ -62,6 +115,6 @@ document.addEventListener('mousedown',function (event)
 	  i.style.zIndex=-1;
 	  score-=5;
 	}
-    document.getElementById('score').textContent=score;
+    spanScore.textContent=score;
   },1000);
 });
