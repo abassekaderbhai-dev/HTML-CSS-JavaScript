@@ -2,8 +2,6 @@
 
 Un mini-jeu de réflexes en HTML, CSS et JavaScript avec Tux, la mascotte de Linux. Un joueur le déplace pour éviter les taches, tandis que son adversaire essaie de le toucher.
 
-Cette version reprend le jeu du portfolio, avec un mode solo contre un adversaire automatique, un mode à deux et des boutons pour jouer sur petit écran.
-
 ## Jouer
 
 **En ligne :** ouvre [mon portfolio](https://abassekaderbhai-dev.github.io/) et clique sur **Jouer** dans la partie **Jeu Tux**.
