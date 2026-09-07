@@ -98,7 +98,7 @@ function demarrer_partie(){
     intervalTemps = setInterval(minuteur, 1000);
 
     if (mode === 'ia'){
-        intervalIA = setInterval(tir_ia, 200);
+        intervalIA = setInterval(tir_ia, 100);
     }
 
     cadre.focus();
@@ -257,7 +257,7 @@ function lancer_tache(x, y){
         if (touche){
             image.src = 'splat2.svg';
             image.style.opacity = 0;
-            score += 5;
+            score += 15;
 
             setTimeout(function(){
                 image.remove();
@@ -266,6 +266,12 @@ function lancer_tache(x, y){
         else {
             image.style.zIndex = 0;
             scoreJ1 += 2;
+
+            image.style.opacity = 0;
+
+            setTimeout(function(){
+                image.remove();
+            }, 3000)
         }
 
         mettre_a_jour();
