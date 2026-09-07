@@ -13,7 +13,7 @@ let boutonsDirection = document.querySelectorAll('[data-direction]');
 let score = 0;
 let scoreJ1 = 0;
 let etape = 'Début';
-let temps = 10;
+let temps = 30;
 let mode = 'ia';
 let intervalTemps;
 let intervalIA;
@@ -62,12 +62,12 @@ function changer_mode(nouveauMode){
 
     if (mode === 'ia'){
         spanMode.textContent = "Contre l'IA";
-        titreScore.textContent = 'Score IA';
+        titreScore.textContent = 'IA (tireur)';
         instruction.textContent = 'Déplace Tux avec les flèches et évite les taches lancées automatiquement.';
     }
     else {
         spanMode.textContent = '2 joueurs';
-        titreScore.textContent = 'Score J2';
+        titreScore.textContent = 'Tireur (J2)';
         instruction.textContent = 'Joueur 1 déplace Tux. Joueur 2 clique dans la zone pour lancer les taches.';
     }
 }
@@ -85,7 +85,7 @@ function demarrer_partie(){
     tux.style.left = '14%';
     tux.style.top = '14%';
     score = 0;
-    temps = 10;
+    temps = 30;
     scoreJ1 = 0;
     etape = 'Jeu';
 
@@ -118,6 +118,11 @@ function terminer_partie(){
     clearInterval(intervalTemps);
     clearInterval(intervalIA);
     document.getElementById('game-over').style.display = 'grid';
+    let adversaire = mode === 'ia' ? "L'IA" : 'Le tireur';
+    let resultat = scoreJ1 === score ? 'Égalité !' :
+        (scoreJ1 > score ? 'Tux gagne !' : adversaire + ' gagne !');
+    document.getElementById('game-over').textContent = resultat + '\nTux : ' + scoreJ1 + ' — ' +
+        (mode === 'ia' ? 'IA' : 'Tireur') + ' : ' + score;
     commencer.style.opacity = 1;
     commencer.textContent = 'Recommencer';
 }
@@ -252,7 +257,7 @@ function lancer_tache(x, y){
         if (touche){
             image.src = 'splat2.svg';
             image.style.opacity = 0;
-            score += 10;
+            score += 5;
 
             setTimeout(function(){
                 image.remove();
@@ -260,8 +265,7 @@ function lancer_tache(x, y){
         }
         else {
             image.style.zIndex = 0;
-            score -= 5;
-            scoreJ1 += 5;
+            scoreJ1 += 2;
         }
 
         mettre_a_jour();
