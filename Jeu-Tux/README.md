@@ -19,9 +19,9 @@ La partie dure 30 secondes et les deux scores sont affichés :
 - Tux (joueur 1) gagne 2 points à chaque esquive.
 - Le tireur (joueur 2 ou IA) gagne 5 points par touche.
 
-Aucun point n'est retiré. Le plus grand score gagne et le résultat s'affiche à la fin, avec une égalité si les scores sont identiques.
+Le plus grand score gagne et le résultat s'affiche à la fin, avec une égalité si les scores sont identiques.
 
-Les scores restent visibles à la fin. Clique sur **Recommencer** pour rejouer avec les deux scores à zéro.
+Clique sur **Recommencer** pour rejouer avec les deux scores à zéro.
 
 Les images sont incluses dans le dossier. Aucune installation n'est nécessaire.
 
