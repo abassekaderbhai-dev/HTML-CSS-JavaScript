@@ -13,29 +13,47 @@
                 <button class="mode" data-mode="deux" type="button">2 joueurs</button>
             </div>
 
+            <div class="choix-duree">
+                <label for="duree">Durée de la partie</label>
+                <select id="duree">
+                    <option value="15">15 secondes</option>
+                    <option value="30" selected>30 secondes</option>
+                    <option value="45">45 secondes</option>
+                    <option value="60">60 secondes</option>
+                </select>
+            </div>
+
             <div class="infos">
-                <span>Mode <b id="mode">Contre l'IA</b></span>
                 <span>Tux (J1) <b id="score-j1">0</b></span>
                 <span><span id="titre-score">IA (tireur)</span> <b id="score">0</b></span>
                 <span>Temps restant (s) <b id="temps">30</b></span>
             </div>
 
-            <div id="cadre" tabindex="0" aria-label="Zone du jeu Tux">
-                <img id="tux" src="tux.png" alt="Tux">
-                <p id="game-over">Terminé</p>
-            </div>
+            <div class="zone-jeu">
+                <div class="plateau">
+                    <div id="cadre" tabindex="0" aria-label="Zone du jeu Tux">
+                        <img id="tux" src="tux.png" alt="Tux">
+                        <p id="game-over">Terminé</p>
+                    </div>
 
-            <div class="deplacement">
-                <button data-direction="gauche" type="button">←</button>
-                <button data-direction="haut" type="button">↑</button>
-                <button data-direction="bas" type="button">↓</button>
-                <button data-direction="droite" type="button">→</button>
-            </div>
+                    <div class="commandes">
+                        <button id="commencer" type="button">Commencer</button>
+                    </div>
+                </div>
 
-            <div class="commandes">
-                <button id="commencer" type="button">Commencer</button>
-                <p id="instruction">Déplace Tux avec les flèches et évite les taches lancées automatiquement.</p>
-                <p>Tux : +2 par esquive. Tireur : +5 par touche. Aucun point retiré.</p>
+                <aside class="aide-jeu">
+                    <h2>Comment jouer ?</h2>
+
+                    <p id="instruction">
+                        Déplace Tux avec les flèches du clavier
+                        et évite les taches lancées automatiquement.
+                    </p>
+
+                    <div class="bareme">
+                        <p><strong>Tux</strong> +2 par esquive</p>
+                        <p><strong>Tireur</strong> +15 par touche</p>
+                    </div>
+                </aside>
             </div>
         </main>
         <script src="jeu.js"></script>

@@ -1,14 +1,13 @@
 let cadre = document.getElementById('cadre');
 let tux = document.getElementById('tux');
-let spanMode = document.getElementById('mode');
 let spanScore = document.getElementById('score');
 let spanScoreJ1 = document.getElementById('score-j1');
 let spanTemps = document.getElementById('temps');
 let titreScore = document.getElementById('titre-score');
 let instruction = document.getElementById('instruction');
 let commencer = document.getElementById('commencer');
+let choixDuree = document.getElementById('duree');
 let boutonsMode = document.querySelectorAll('[data-mode]');
-let boutonsDirection = document.querySelectorAll('[data-direction]');
 
 let score = 0;
 let scoreJ1 = 0;
@@ -21,18 +20,17 @@ let intervalIA;
 changer_mode('ia');
 mettre_a_jour();
 
+choixDuree.addEventListener('change', function(){
+    if (etape !== 'Jeu'){
+        temps = Number(choixDuree.value);
+        mettre_a_jour();
+    }
+});
+
 for (let i = 0; i < boutonsMode.length; i++){
     boutonsMode[i].addEventListener('click', function(){
         if (etape !== 'Jeu'){
             changer_mode(boutonsMode[i].dataset.mode);
-        }
-    });
-}
-
-for (let i = 0; i < boutonsDirection.length; i++){
-    boutonsDirection[i].addEventListener('click', function(){
-        if (etape === 'Jeu'){
-            deplacer_tux(boutonsDirection[i].dataset.direction);
         }
     });
 }
@@ -61,12 +59,10 @@ function changer_mode(nouveauMode){
     }
 
     if (mode === 'ia'){
-        spanMode.textContent = "Contre l'IA";
         titreScore.textContent = 'IA (tireur)';
         instruction.textContent = 'Déplace Tux avec les flèches et évite les taches lancées automatiquement.';
     }
     else {
-        spanMode.textContent = '2 joueurs';
         titreScore.textContent = 'Tireur (J2)';
         instruction.textContent = 'Joueur 1 déplace Tux. Joueur 2 clique dans la zone pour lancer les taches.';
     }
@@ -85,9 +81,10 @@ function demarrer_partie(){
     tux.style.left = '14%';
     tux.style.top = '14%';
     score = 0;
-    temps = 30;
     scoreJ1 = 0;
     etape = 'Jeu';
+    temps = Number(choixDuree.value);
+    choixDuree.disabled = true;
 
     commencer.style.opacity = .45;
     commencer.textContent = 'Partie en cours';
@@ -124,6 +121,7 @@ function terminer_partie(){
     document.getElementById('game-over').textContent = resultat + '\nTux : ' + scoreJ1 + ' — ' +
         (mode === 'ia' ? 'IA' : 'Tireur') + ' : ' + score;
     commencer.style.opacity = 1;
+    choixDuree.disabled = false;
     commencer.textContent = 'Recommencer';
 }
 
@@ -230,17 +228,34 @@ function lancer_tache(x, y){
         return;
     }
 
+    let tirIA = mode === 'ia';
+    let delaiImpact = tirIA ? 450 : 1000;
     let image = document.createElement('img');
     image.src = 'splat.svg';
     image.className = 'tache';
+    image.style.setProperty('--duree-vol', delaiImpact + 'ms');
+
+    if (tirIA){
+        image.style.visibility = 'hidden';
+    }
+
     image.style.left = (positionCadre.width / 2 - 16) + 'px';
     image.style.top = (positionCadre.height - 32) + 'px';
     cadre.appendChild(image);
 
+    if (tirIA){
+        setTimeout(function(){
+            if (!image.isConnected || etape !== 'Jeu'){
+                return;
+            }
+
+            image.style.visibility = 'visible';
+        }, delaiImpact - 150);
+    }
+
     getComputedStyle(image).top;
     image.style.top = (y - 16) + 'px';
     image.style.left = (x - 16) + 'px';
-    image.style.transform = 'scale(1)';
 
     setTimeout(function(){
         if (!image.isConnected || etape !== 'Jeu'){
@@ -258,6 +273,11 @@ function lancer_tache(x, y){
             image.src = 'splat2.svg';
             image.style.opacity = 0;
             score += 15;
+            image.style.zIndex = 2;
+
+            setTimeout(function(){
+                image.style.zIndex = 0;
+            }, 200);
 
             setTimeout(function(){
                 image.remove();
@@ -275,5 +295,5 @@ function lancer_tache(x, y){
         }
 
         mettre_a_jour();
-    }, 1000);
+    }, delaiImpact);
 }

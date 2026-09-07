@@ -40,9 +40,33 @@ body {
     color: #fff;
 }
 
+.choix-duree {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.choix-duree select {
+    padding: 8px 12px;
+    border: 1px solid #d4d8d3;
+    border-radius: 8px;
+    background: #fff;
+    color: #151717;
+    font: inherit;
+    cursor: pointer;
+}
+
+.choix-duree select:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
 .infos {
     display: grid;
-    grid-template-columns: repeat(4,minmax(0,1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
     margin-bottom: 10px;
 }
@@ -85,15 +109,17 @@ body {
     transition: top .3s,left .3s;
     user-select: none;
     pointer-events: none;
-    z-index : 999;
+    z-index : 1;
 }
 
 .tache {
     position: absolute;
     width: 32px;
     height: 32px;
-    transform: scale(4);
-    transition: top 1s,left 1s,transform 1s,opacity 3s;
+    transition:
+        top var(--duree-vol, 1s) linear,
+        left var(--duree-vol, 1s) linear,
+        opacity 3s;
     pointer-events: none;
     z-index: 2;
 }
@@ -113,27 +139,6 @@ body {
     background: rgba(255,255,255,.78);
     text-shadow: 0 1px 0 #fff;
     z-index: 5;
-}
-
-.deplacement {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    margin-top: 12px;
-}
-
-.deplacement button {
-    width: 46px;
-    height: 40px;
-    border: 1px solid #d4d8d3;
-    border-radius: 7px;
-    background: #fff;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.deplacement button:hover {
-    background: #e9ede8;
 }
 
 .commandes {
@@ -157,11 +162,68 @@ body {
     color: #667067;
 }
 
-@media (max-width:480px) {
-    .infos {
-        grid-template-columns: repeat(2,minmax(0,1fr));
+.jeu {
+    max-width: 740px;
+}
+
+.zone-jeu {
+    display: grid;
+    grid-template-columns: minmax(0, 500px) minmax(0, 220px);
+    gap: 20px;
+    align-items: start;
+}
+
+.plateau {
+    min-width: 0;
+}
+
+.aide-jeu {
+    padding: 16px;
+    border: 1px solid #d4d8d3;
+    border-radius: 10px;
+    background: #fff;
+    color: #667067;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.aide-jeu h2 {
+    margin: 0 0 10px;
+    color: #151717;
+    font-size: 14px;
+}
+
+.aide-jeu p {
+    margin: 0 0 10px;
+}
+
+.bareme {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #e9ede8;
+}
+
+.bareme p:last-child {
+    margin-bottom: 0;
+}
+
+.bareme strong {
+    color: #151717;
+}
+
+@media (max-width: 650px) {
+    .zone-jeu {
+        grid-template-columns: minmax(0, 1fr);
     }
 
+    .aide-jeu {
+        width: 100%;
+        max-width: 500px;
+        justify-self: center;
+    }
+}
+
+@media (max-width:480px) {
     body {
         padding: 10px;
     }
