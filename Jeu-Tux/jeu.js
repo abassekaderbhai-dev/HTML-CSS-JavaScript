@@ -2,6 +2,7 @@ let cadre = document.getElementById('cadre');
 let tux = document.getElementById('tux');
 let spanMode = document.getElementById('mode');
 let spanScore = document.getElementById('score');
+let spanScoreJ1 = document.getElementById('score-j1');
 let spanTemps = document.getElementById('temps');
 let titreScore = document.getElementById('titre-score');
 let instruction = document.getElementById('instruction');
@@ -10,6 +11,7 @@ let boutonsMode = document.querySelectorAll('[data-mode]');
 let boutonsDirection = document.querySelectorAll('[data-direction]');
 
 let score = 0;
+let scoreJ1 = 0;
 let etape = 'Début';
 let temps = 10;
 let mode = 'ia';
@@ -42,6 +44,11 @@ commencer.addEventListener('click', function(){
 });
 
 function changer_mode(nouveauMode){
+    if (mode !== nouveauMode){
+        score = 0;
+        scoreJ1 = 0;
+        mettre_a_jour();
+    }
     mode = nouveauMode;
 
     for (let i = 0; i < boutonsMode.length; i++){
@@ -67,6 +74,7 @@ function changer_mode(nouveauMode){
 
 function mettre_a_jour(){
     spanScore.textContent = score;
+    spanScoreJ1.textContent = scoreJ1;
     spanTemps.textContent = temps;
 }
 
@@ -78,6 +86,7 @@ function demarrer_partie(){
     tux.style.top = '14%';
     score = 0;
     temps = 10;
+    scoreJ1 = 0;
     etape = 'Jeu';
 
     commencer.style.opacity = .45;
@@ -252,8 +261,9 @@ function lancer_tache(x, y){
         else {
             image.style.zIndex = 0;
             score -= 5;
+            scoreJ1 += 5;
         }
 
-        spanScore.textContent = score;
+        mettre_a_jour();
     }, 1000);
 }

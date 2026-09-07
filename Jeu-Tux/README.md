@@ -12,7 +12,12 @@ Ouvre `index.html` dans ton navigateur, choisis un mode et clique sur **Commence
 - En solo, les taches sont lancées automatiquement.
 - À deux, le second joueur clique dans la zone pour viser Tux.
 
-La partie dure 10 secondes. Le score est celui de l'adversaire : une touche rapporte 10 points, un tir manqué en retire 5. Clique sur **Recommencer** pour rejouer.
+La partie dure 10 secondes et les deux scores sont affichés :
+
+- Le joueur 1, qui déplace Tux, gagne 5 points à chaque esquive.
+- Le joueur 2 (ou l'IA en solo) gagne 10 points par touche et perd 5 points par tir raté.
+
+Les scores restent visibles à la fin. Clique sur **Recommencer** pour rejouer avec les deux scores à zéro.
 
 Les images sont incluses dans le dossier. Aucune installation n'est nécessaire.
 
