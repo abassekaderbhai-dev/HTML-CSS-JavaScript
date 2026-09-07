@@ -17,7 +17,7 @@ Choisis un mode et clique sur **Commencer**.
 La partie dure 30 secondes et les deux scores sont affichés :
 
 - Tux (joueur 1) gagne 2 points à chaque esquive.
-- Le tireur (joueur 2 ou IA) gagne 5 points par touche.
+- Le tireur (joueur 2 ou IA) gagne 15 points par touche.
 
 Le plus grand score gagne et le résultat s'affiche à la fin, avec une égalité si les scores sont identiques.
 
