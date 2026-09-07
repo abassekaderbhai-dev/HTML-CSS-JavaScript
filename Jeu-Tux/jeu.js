@@ -98,7 +98,7 @@ function demarrer_partie(){
     intervalTemps = setInterval(minuteur, 1000);
 
     if (mode === 'ia'){
-        intervalIA = setInterval(tir_ia, 1250);
+        intervalIA = setInterval(tir_ia, 200);
     }
 
     cadre.focus();
