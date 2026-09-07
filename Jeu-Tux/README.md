@@ -1,39 +1,21 @@
 # Jeu Tux
 
-Un mini-jeu de réflexes. Le joueur déplace avec "Tux", la mascotte de Linux, dans une zone de jeu et doit le faire toucher par des projections lancées à la souris.
+Un mini-jeu de réflexes en HTML, CSS et JavaScript avec Tux, la mascotte de Linux. Un joueur le déplace pour éviter les taches, tandis que son adversaire essaie de le toucher.
 
----
+Cette version reprend le jeu du portfolio, avec un mode solo contre un adversaire automatique, un mode à deux et des boutons pour jouer sur petit écran.
 
-## Structure du projet
+## Jouer
 
-```
-.
-├── index.html   # Structure de la page
-├── jeu.css      # Mise en page et animations
-└── jeu.js       # Logique du jeu
-```
+Ouvre `index.html` dans ton navigateur, choisis un mode et clique sur **Commencer**.
 
----
+- Déplace Tux avec les flèches du clavier ou les boutons à l'écran.
+- En solo, les taches sont lancées automatiquement.
+- À deux, le second joueur clique dans la zone pour viser Tux.
 
-## Règles du jeu
+La partie dure 10 secondes. Le score est celui de l'adversaire : une touche rapporte 10 points, un tir manqué en retire 5. Clique sur **Recommencer** pour rejouer.
 
-- **Déplacer Tux** — touches directionnelles `←` `→` `↑` `↓`
-- **Lancer un splat** — cliquer dans la zone de jeu
-- Tux **touché** → **+10 points**
-- Splat **raté** → **-5 points**
+Les images sont incluses dans le dossier. Aucune installation n'est nécessaire.
 
-Le splat apparaît agrandi puis glisse vers la position du clic. La collision est vérifiée à l'arrivée du projectile ; il faut donc anticiper !
+## Pour la suite
 
----
-
-## Améliorations prévues
-
-- Ajouter un compte à rebours pour limiter la durée d'une partie
-- Afficher un message de fin avec le score final
-- Faire un tableau avec la sauvegarde des joueurs et leurs scores grâce au répertoire `Liste_joueurs`
-
----
-
-## Lancer le jeu
-
-Ouvrir `index.html` dans un navigateur.
+Relier le jeu au projet `Liste_joueurs` pour enregistrer les joueurs et leurs scores.

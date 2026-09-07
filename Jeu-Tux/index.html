@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8"/>
-		<title>Jeu</title>
-		<link href="jeu.css" rel="stylesheet" />
-	</head>
-	<body>
-		<div id="cadre">
-			<img id="tux" src="https://moodle.iutv.univ-paris13.fr/img/bjs/tux.png" alt="tux"/>
-		</div>
-        <div id="carac">
-            <p>Étape: <span id="etape">---</span></p> 
-            <p>Score: <span id="score">---</span></p> 
-            <p>Temps restant: <span id="temps">---</span></p>
-        </div>    
-        <input id="commencer"   type="button" value="Commencer"/>
-        <p id="game-over"> Game Over !!!</p>
-		<script src="jeu.js"></script>
-	</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Jeu Tux</title>
+        <link rel="stylesheet" href="jeu.css">
+    </head>
+    <body>
+        <main class="jeu">
+            <div class="modes">
+                <button class="mode actif" data-mode="ia" type="button">Contre l'IA</button>
+                <button class="mode" data-mode="deux" type="button">2 joueurs</button>
+            </div>
+
+            <div class="infos">
+                <span>Mode <b id="mode">Contre l'IA</b></span>
+                <span><span id="titre-score">Score IA</span> <b id="score">0</b></span>
+                <span>Temps <b id="temps">10</b></span>
+            </div>
+
+            <div id="cadre" tabindex="0" aria-label="Zone du jeu Tux">
+                <img id="tux" src="tux.png" alt="Tux">
+                <p id="game-over">Terminé</p>
+            </div>
+
+            <div class="deplacement">
+                <button data-direction="gauche" type="button">←</button>
+                <button data-direction="haut" type="button">↑</button>
+                <button data-direction="bas" type="button">↓</button>
+                <button data-direction="droite" type="button">→</button>
+            </div>
+
+            <div class="commandes">
+                <button id="commencer" type="button">Commencer</button>
+                <p id="instruction">Déplace Tux avec les flèches et évite les taches lancées automatiquement.</p>
+            </div>
+        </main>
+        <script src="jeu.js"></script>
+    </body>
 </html>
