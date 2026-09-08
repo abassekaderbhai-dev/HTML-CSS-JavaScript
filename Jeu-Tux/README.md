@@ -18,14 +18,12 @@ Choisis un mode, une durée de **15, 30, 45 ou 60 secondes**, puis clique sur **
 | Le tireur touche Tux | +15 pour le tireur |
 | Tux esquive une tache | +2 pour Tux |
 
-Aucun point n'est retiré. À la fin du temps, le plus grand score gagne. Les scores peuvent aussi être à égalité. Clique sur **Recommencer** pour lancer une nouvelle partie.
+À la fin du temps, le plus grand score gagne. Clique sur **Recommencer** pour lancer une nouvelle partie.
 
 ## Ce que j'ai appris
 
-Ce projet m'a permis de mieux comprendre comment relier JavaScript aux éléments d'une page : réagir au clavier et à la souris, déplacer des images et mettre à jour les scores. J'ai aussi appris à gérer un chronomètre, à détecter les contacts entre deux éléments et à coordonner les animations avec les actions du jeu.
+Ce projet m'a permis de mieux comprendre comment relier JavaScript aux éléments d'une page : réagir au clavier et à la souris, déplacer des images et mettre à jour les scores. J'ai aussi appris à gérer un chronomètre, à coordonner les animations avec les actions du jeu.
 
 ## Essayer le jeu
 
-**Sur ordinateur :** [télécharge le dépôt en ZIP](https://github.com/abassekaderbhai-dev/HTML-CSS-JavaScript/archive/refs/heads/main.zip), décompresse-le et ouvre `Jeu-Tux/index.html` dans ton navigateur. Garde tous les fichiers du dossier ensemble. Aucune installation supplémentaire n'est nécessaire ; un clavier est requis pour déplacer Tux.
-
-**En ligne :** retrouve aussi le jeu sur [mon portfolio](https://abassekaderbhai-dev.github.io/), dans la partie **Jeu Tux**. La version du portfolio peut différer de celle de ce dossier.
+**En ligne :** retrouve aussi le jeu sur [mon portfolio](https://abassekaderbhai-dev.github.io/#Tester), dans la partie **Jeu Tux**. La version du portfolio peut différer de celle de ce dossier.
